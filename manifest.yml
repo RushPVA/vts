@@ -1,0 +1,6 @@
+applications:
+- name: vts
+  path: @project.build.finalName@.@project.packaging@
+  services:
+  - mongo-db
+
