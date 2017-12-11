@@ -22,7 +22,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-/src/main/frontend/src/primereact/theme/*.css
+/src/main/frontend/src/**/*.css
 /src/main/frontend/build/
 /src/main/frontend/node/
 /src/main/frontend/node_modules/
