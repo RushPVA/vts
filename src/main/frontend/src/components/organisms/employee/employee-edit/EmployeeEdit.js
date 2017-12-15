@@ -116,62 +116,55 @@ export default class EmployeeEdit extends Component<Props, State> {
 
   render() {
     let validationResult = this.validate();
-    return <div className="ui-g ui-fluid">
+    return <div className="ui-g form-group">
       <div className="ui-g-12">
-        <div className="card card-w-title">
-          <h1>{this.state.employee.id ? 'Edit Employee' : 'New Employee'}</h1>
-          <div className="ui-g form-group">
-            <div className="ui-g-12">
-              <Messages value={this.state.messages} closable={false}/>
-            </div>
-            <div className="ui-g-12">
-              <div className="ui-g-12 ui-md-4">
-                <span className="md-inputfield">
-                  <InputText name="name" className={EmployeeEdit.inputClass(this.state.employee.name, !this.state.touchedFields.name || validationResult.nameFilled)} value={this.state.employee.name} onInput={this.handleUserInput} onBlur={this.handleBlur} />
-                  <label>Name</label>
-                  <ValidationMessage show={this.state.touchedFields.name && !validationResult.nameFilled} message="Name is required field"/>
-                </span>
-              </div>
-            </div>
-            <div className="ui-g-12">
-              <div className="ui-g-12 ui-md-4">
-                <span className="md-inputfield">
-                  <InputText name="surname" className={EmployeeEdit.inputClass(this.state.employee.surname, !this.state.touchedFields.surname || validationResult.surnameFilled)} value={this.state.employee.surname} onInput={this.handleUserInput} onBlur={this.handleBlur} />
-                  <label>Surname</label>
-                  <ValidationMessage show={this.state.touchedFields.surname && !validationResult.surnameFilled} message="Surname is required field"/>
-                </span>
-              </div>
-            </div>
-            <div className="ui-g-12">
-              <div className="ui-g-12 ui-md-4">
-                <span className="md-inputfield">
-                  <InputText  name="email" className={EmployeeEdit.inputClass(this.state.employee.email, !this.state.touchedFields.email || validationResult.emailValid())} value={this.state.employee.email} onInput={this.handleUserInput} onBlur={this.handleBlur} />
-                  <label>Email</label>
-                  <ValidationMessage show={this.state.touchedFields.email && !validationResult.emailFilled} message="Email is required field"/>
-                  <ValidationMessage show={this.state.touchedFields.email && !validationResult.emailWellFormatted} message="Email field has wrong format"/>
-                </span>
-              </div>
-            </div>
-            <div className="ui-g-12">
-              <div className="ui-g-12 ui-md-4">
-                <div className="ui-g-12">
-                  <label>Groups</label>
-                </div>
-                <div className="ui-g-12" style={{marginBottom:'10px'}}>
-                  <AutoComplete name="groups" value={this.state.employee.groups}
-                                completeMethod={this.filterGroups} suggestions={this.state.filteredGroups}
-                                minLength={1} multiple={true} onChange={(e) => this.setState({employee: {...this.state.employee, groups: e.value}})}
-                                onKeyPress={this.onEnter}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="ui-g-12 ui-md-4 text-right">
-              <Button icon="ui-icon-save" style={{width: 'auto'}} label="Save" onClick={this.save}/>
-              <Button icon="ui-icon-cancel" style={{width: 'auto'}} className="ui-button-danger" label="Cancel" onClick={this.cancel}/></div>
+        <Messages value={this.state.messages} closable={false}/>
+      </div>
+      <div className="ui-g-12">
+        <div className="ui-g-12 ui-md-4">
+          <span className="md-inputfield">
+            <InputText name="name" className={EmployeeEdit.inputClass(this.state.employee.name, !this.state.touchedFields.name || validationResult.nameFilled)} value={this.state.employee.name} onInput={this.handleUserInput} onBlur={this.handleBlur} />
+            <label>Name</label>
+            <ValidationMessage show={this.state.touchedFields.name && !validationResult.nameFilled} message="Name is required field"/>
+          </span>
+        </div>
+      </div>
+      <div className="ui-g-12">
+        <div className="ui-g-12 ui-md-4">
+          <span className="md-inputfield">
+            <InputText name="surname" className={EmployeeEdit.inputClass(this.state.employee.surname, !this.state.touchedFields.surname || validationResult.surnameFilled)} value={this.state.employee.surname} onInput={this.handleUserInput} onBlur={this.handleBlur} />
+            <label>Surname</label>
+            <ValidationMessage show={this.state.touchedFields.surname && !validationResult.surnameFilled} message="Surname is required field"/>
+          </span>
+        </div>
+      </div>
+      <div className="ui-g-12">
+        <div className="ui-g-12 ui-md-4">
+          <span className="md-inputfield">
+            <InputText  name="email" className={EmployeeEdit.inputClass(this.state.employee.email, !this.state.touchedFields.email || validationResult.emailValid())} value={this.state.employee.email} onInput={this.handleUserInput} onBlur={this.handleBlur} />
+            <label>Email</label>
+            <ValidationMessage show={this.state.touchedFields.email && !validationResult.emailFilled} message="Email is required field"/>
+            <ValidationMessage show={this.state.touchedFields.email && !validationResult.emailWellFormatted} message="Email field has wrong format"/>
+          </span>
+        </div>
+      </div>
+      <div className="ui-g-12">
+        <div className="ui-g-12 ui-md-4">
+          <div className="ui-g-12">
+            <label>Groups</label>
+          </div>
+          <div className="ui-g-12" style={{marginBottom:'10px'}}>
+            <AutoComplete name="groups" value={this.state.employee.groups}
+                          completeMethod={this.filterGroups} suggestions={this.state.filteredGroups}
+                          minLength={1} multiple={true} onChange={(e) => this.setState({employee: {...this.state.employee, groups: e.value}})}
+                          onKeyPress={this.onEnter}
+            />
           </div>
         </div>
       </div>
+      <div className="ui-g-12 ui-md-4 text-right">
+        <Button icon="ui-icon-save" style={{width: 'auto'}} label="Save" onClick={this.save}/>
+        <Button icon="ui-icon-cancel" style={{width: 'auto'}} className="ui-button-danger" label="Cancel" onClick={this.cancel}/></div>
     </div>
   }
 

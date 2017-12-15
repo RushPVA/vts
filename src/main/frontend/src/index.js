@@ -4,19 +4,19 @@ import 'babel-polyfill';
 import App from 'components/layout/app/App';
 import {Router, Route, hashHistory} from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
-import IndexRedirect from 'react-router/es/IndexRedirect';
 import OnePage from 'components/pages/one-page/OnePage';
 import OneMorePage from 'components/pages/one-more-page/OneMorePage';
-import EmployeeList from 'components/employee/epmloyee-list/EmployeeList';
-import EmployeeEdit from 'components/employee/employee-edit/EmployeeEdit';
+import EmployeeListPage from 'components/pages/employee/EmployeeListPage';
+import EmployeeEditPage from 'components/pages/employee/EmployeeEditPage';
+import LoginPage from 'components/pages/login/LoginPage';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRedirect to="/employee"/>
-      <Route path="/employee" component={EmployeeList}/>
-      <Route path="/employee/new" component={EmployeeEdit}/>
-      <Route path="/employee/:employeeId" component={EmployeeEdit}/>
+    <Route path="/"  component={LoginPage}/>
+    <Route component={App}>
+      <Route path="/employee" component={EmployeeListPage}/>
+      <Route path="/employee/new" component={EmployeeEditPage}/>
+      <Route path="/employee/:employeeId" component={EmployeeEditPage}/>
       <Route path="/one-page" component={OnePage}/>
       <Route path="/one-more-page" component={OneMorePage}/>
     </Route>

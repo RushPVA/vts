@@ -75,41 +75,34 @@ export default class EmployeeList extends Component<Props, State> {
   </div>;
 
   render() {
-    return <div className="ui-g ui-fluid">
+    return <div className="ui-g">
       <div className="ui-g-12">
-        <div className="card card-w-title">
-          <h1>Employees</h1>
-          <div className="ui-g">
-            <div className="ui-g-12">
-              <Messages value={this.state.messages} closable={false}/>
-            </div>
-            <div className="ui-g-12 ui-md-3">
-              <div className="ui-inputgroup">
-              <span className="md-inputfield">
-                <InputText  type="text" placeholder="Search" onInput={(e) => {this.setState({employeeFilter: e.target.value})}} />
-                <i className="material-icons">search</i>
-              </span>
-              </div>
-            </div>
-            <div className="ui-g-12">
-              <DataTable paginator={true} responsive={true} rows={5} value={this.state.employees} globalFilter={this.state.employeeFilter}>
-                <Column field="id" header="ID" sortable={true}/>
-                <Column field="name" header="Name" sortable={true}/>
-                <Column field="surname" header="Surname" sortable={true}/>
-                <Column field="email" header="Email" sortable={true}/>
-                <Column field="groups" header="Groups" sortable={true} body={this.groupsColumnTemplate}/>
-                <Column className="col-icon text-center"  style={{width:'120px'}} body={this.controlsColumnTemplate}/>
-              </DataTable>
-            </div>
-            <div className="ui-g-12 text-right">
-              <Button icon="ui-icon-plus" style={{width: 'auto'}} className="ui-button-success" label="Add" onClick={(e) => {this.props.router.push('/employee/new')}} />
-            </div>
-            <Dialog header="Confirmation" visible={this.state.showConfirmationDialog} modal={true} width="400px" footer={this.dialogFooter} onHide={()=>this.setState({showConfirmationDialog:false})}>
-              <p>Are you sure to delete employee?</p>
-            </Dialog>
-          </div>
+        <Messages value={this.state.messages} closable={false}/>
+      </div>
+      <div className="ui-g-12 ui-md-3">
+        <div className="ui-inputgroup">
+        <span className="md-inputfield">
+          <InputText  type="text" placeholder="Search" onInput={(e) => {this.setState({employeeFilter: e.target.value})}} />
+          <i className="material-icons">search</i>
+        </span>
         </div>
       </div>
+      <div className="ui-g-12">
+        <DataTable paginator={true} responsive={true} rows={5} value={this.state.employees} globalFilter={this.state.employeeFilter}>
+          <Column field="id" header="ID" sortable={true}/>
+          <Column field="name" header="Name" sortable={true}/>
+          <Column field="surname" header="Surname" sortable={true}/>
+          <Column field="email" header="Email" sortable={true}/>
+          <Column field="groups" header="Groups" sortable={true} body={this.groupsColumnTemplate}/>
+          <Column className="col-icon text-center"  style={{width:'120px'}} body={this.controlsColumnTemplate}/>
+        </DataTable>
+      </div>
+      <div className="ui-g-12 text-right">
+        <Button icon="ui-icon-plus" style={{width: 'auto'}} className="ui-button-success" label="Add" onClick={(e) => {this.props.router.push('/employee/new')}} />
+      </div>
+      <Dialog header="Confirmation" visible={this.state.showConfirmationDialog} modal={true} width="400px" footer={this.dialogFooter} onHide={()=>this.setState({showConfirmationDialog:false})}>
+        <p>Are you sure to delete employee?</p>
+      </Dialog>
     </div>
   }
 
