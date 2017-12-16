@@ -65,10 +65,16 @@
     color: $textSecondaryColor;
 }
 
+@media (max-height: 650px) {
+    .login-body {
+        height: calc(100%- -20px);
+        padding-top: 20px;
+    }
+}
 
 @media (max-width: 1024px) {
     .login-body {
-      background: url("../images/login/background.svg") 320px 0 no-repeat #f7f7f7;
+        background: url("../images/login/background.svg") 420px 0 no-repeat #f7f7f7;
     }
     .login-panel {
         text-align: center;
@@ -80,7 +86,7 @@
 
 @media (max-width: 640px) {
     .login-body {
-      background: url("../images/login/background.svg") 120px 0 no-repeat #f7f7f7;
+        background: url("../images/login/background.svg") 350px 0 no-repeat #f7f7f7;
     }
     .login-panel {
         text-align: center;
@@ -93,9 +99,6 @@
             .ui-g-12 {
                 padding: 20px 20px;
 
-                .ui-button {
-                    margin-top: 30px
-                }
             }
         }
     }

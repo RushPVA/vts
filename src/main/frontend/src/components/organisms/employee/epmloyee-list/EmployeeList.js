@@ -91,7 +91,7 @@ export default class EmployeeList extends Component<Props, State> {
         <DataTable paginator={true} responsive={true} rows={5} value={this.state.employees} globalFilter={this.state.employeeFilter}>
           <Column field="name" header="Name" sortable={true}/>
           <Column field="surname" header="Surname" sortable={true}/>
-          <Column field="email" header="Email" sortable={true}/>
+          <Column field="email" header="Email" style={{wordBreak: 'break-all'}} sortable={true}/>
           <Column field="groups" header="Groups" sortable={true} body={this.groupsColumnTemplate}/>
           <Column className="col-icon text-center"  style={{width:'120px'}} body={this.controlsColumnTemplate}/>
         </DataTable>

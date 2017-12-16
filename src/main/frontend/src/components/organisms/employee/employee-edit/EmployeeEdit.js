@@ -121,7 +121,7 @@ export default class EmployeeEdit extends Component<Props, State> {
         <Messages value={this.state.messages} closable={false}/>
       </div>
       <div className="ui-g-12">
-        <div className="ui-g-12 ui-md-4">
+        <div className="ui-g-12 ui-lg-6">
           <span className="md-inputfield">
             <InputText name="name" className={EmployeeEdit.inputClass(this.state.employee.name, !this.state.touchedFields.name || validationResult.nameFilled)} value={this.state.employee.name} onInput={this.handleUserInput} onBlur={this.handleBlur} />
             <label>Name</label>
@@ -130,7 +130,7 @@ export default class EmployeeEdit extends Component<Props, State> {
         </div>
       </div>
       <div className="ui-g-12">
-        <div className="ui-g-12 ui-md-4">
+        <div className="ui-g-12 ui-lg-6">
           <span className="md-inputfield">
             <InputText name="surname" className={EmployeeEdit.inputClass(this.state.employee.surname, !this.state.touchedFields.surname || validationResult.surnameFilled)} value={this.state.employee.surname} onInput={this.handleUserInput} onBlur={this.handleBlur} />
             <label>Surname</label>
@@ -139,7 +139,7 @@ export default class EmployeeEdit extends Component<Props, State> {
         </div>
       </div>
       <div className="ui-g-12">
-        <div className="ui-g-12 ui-md-4">
+        <div className="ui-g-12 ui-lg-6">
           <span className="md-inputfield">
             <InputText  name="email" className={EmployeeEdit.inputClass(this.state.employee.email, !this.state.touchedFields.email || validationResult.emailValid())} value={this.state.employee.email} onInput={this.handleUserInput} onBlur={this.handleBlur} />
             <label>Email</label>
@@ -149,7 +149,7 @@ export default class EmployeeEdit extends Component<Props, State> {
         </div>
       </div>
       <div className="ui-g-12">
-        <div className="ui-g-12 ui-md-4">
+        <div className="ui-g-12 ui-lg-6">
           <div className="ui-g-12">
             <label>Groups</label>
           </div>
@@ -162,7 +162,7 @@ export default class EmployeeEdit extends Component<Props, State> {
           </div>
         </div>
       </div>
-      <div className="ui-g-12 ui-md-4 text-right">
+      <div className="ui-g-12 ui-lg-6 text-right">
         <Button icon="ui-icon-save" style={{width: 'auto'}} label="Save" onClick={this.save}/>
         <Button icon="ui-icon-cancel" style={{width: 'auto'}} className="ui-button-danger" label="Cancel" onClick={this.cancel}/></div>
     </div>
